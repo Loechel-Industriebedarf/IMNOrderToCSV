@@ -111,6 +111,8 @@ function generateOrderCsv($json){
 			$csv .= $billingAdr->countryName.";"; //DeliveryCountry
 			$csv .= $order->info->shippingInfo->contact->mobilePhoneNumber.";"; //Phone
 			$csv .= $order->info->shippingInfo->price.";"; //Shipping
+			$csv .= $order->info->pricingInfo->totalCommission.""; //Fees
+			$csv .= $order->info->identifier->marketplaceCode.""; //Marketplace Code
 		}	
 	}
 	
@@ -142,7 +144,7 @@ function generateCSVHeadline(){
             . "DeliveryZIP;DeliveryCity;DeliveryCountry;"
             . "InvoiceClient;InvoiceClient2;InvoiceStreet;"
             . "InvoiceZIP;InvoiceCity;InvoiceCountry;"
-            . "Phone;Shipping";
+            . "Phone;Shipping;Fees;Marketplace";
     return $csv_headline;
 }
 
